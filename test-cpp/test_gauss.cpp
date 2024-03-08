@@ -47,9 +47,9 @@ static void write_bin(const char *output_path, unsigned char *output_data, int w
 }   
 int main() {
     // 准备src和dst图像1
-    int channel   = 1;
-    int width     = 1920;
-    int height    = 1080;
+    int channel   = 3;
+    int width     = 1921;
+    int height    = 1081;
     int dev_id    = 1;
     bm_handle_t handle;
     bm_status_t dev_ret = bm_dev_request(&handle, dev_id);
@@ -70,7 +70,7 @@ int main() {
     // bm_image_create(handle,
     //                 height,
     //                 width,
-    //                 FORMAT_GRAY,
+    //                 FORMAT_BGR_PLANAR,
     //                 DATA_TYPE_EXT_1N_BYTE,
     //                 &bm_input);
     // bm_image_alloc_dev_mem(bm_input);
@@ -78,13 +78,13 @@ int main() {
     // bm_image_create(handle,
     //                 height,
     //                 width,
-    //                 FORMAT_GRAY,
+    //                 FORMAT_BGR_PLANAR,
     //                 DATA_TYPE_EXT_1N_BYTE,
     //                 &bm_output);
     // bm_image_alloc_dev_mem(bm_output);
 
     // 准备src和dst图像2
-    cv::Mat input_img = cv::imread("/data/test_img.jpg",1,1);
+    cv::Mat input_img = cv::imread("/data/test_img/test_img_640480.png",1,1);
     bm_image bm_input, bm_output;
     cv::bmcv::toBMI(input_img,&bm_input);
 
@@ -95,6 +95,7 @@ int main() {
                     bm_input.data_type,
                     &bm_output);
     bm_image_alloc_dev_mem(bm_output);
+
     // 变换图片
     struct timeval t1, t2;
     gettimeofday(&t1, NULL);
