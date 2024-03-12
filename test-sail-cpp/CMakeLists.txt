@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 project(test_sail)
-include(${CMAKE_SOURCE_DIR}/../../../../cmake/common.cmake)
+include(${CMAKE_SOURCE_DIR}/common.cmake)
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR})
 # SET(CMAKE_BUILD_TYPE "Debug")
