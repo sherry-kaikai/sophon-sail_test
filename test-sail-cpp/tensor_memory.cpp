@@ -19,7 +19,7 @@ int main() {
     int ret;
     sail::Handle handle(dev_id);
     std::shared_ptr<sail::Tensor> input_tensor;
-    std::vector<int> input_shape = {1};
+    std::vector<int> input_shape = {3, 1920, 1080};
     bm_data_type_t input_dtype = BM_FLOAT32;
     input_tensor = std::make_shared<sail::Tensor>(handle,input_shape, input_dtype,true,true);
 
