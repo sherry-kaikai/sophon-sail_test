@@ -1,7 +1,6 @@
 #include <iostream>
 #include "tensor.h"
 
-using namespace std;
 int main() {
     int dev_id = 0;
     int ret;

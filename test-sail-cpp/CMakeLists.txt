@@ -45,7 +45,7 @@ if (${TARGET_ARCH} STREQUAL "pcie")
     # message(STATUS ${FFMPEG_LIB_DIRS})
  
     # aux_source_directory(. SRC_FILES)
-    set(SRC_FILES tensor_memory.cpp)
+    set(SRC_FILES engine.cpp)
     aux_source_directory(../../../../src/ SRC_FILES)
     add_executable(test_sail.pcie ${SRC_FILES})
     target_link_libraries(test_sail.pcie ${FFMPEG_LIBS} ${OpenCV_LIBS} ${SAIL_LIBS} ${the_libbmlib.so} ${the_libbmrt.so} ${the_libbmcv.so} -lpthread)
