@@ -23,20 +23,20 @@ int main() {
     bm_data_type_t input_dtype = BM_FLOAT32;
     input_tensor = std::make_shared<sail::Tensor>(handle,input_shape, input_dtype,true,true);
 
-    // 定义要设置的值
-    std::shared_ptr<float> src_ptr(
-            new float[3 * 1920 * 1080],
-            std::default_delete<float[]>());
-    float * src_data = src_ptr.get();
-    for(int i = 0; i < 3 * 1920 * 1080; i++) {
-        src_data[i] = rand() % 255;
-    }
-    // 输出一下src_data
-    for (int i = 0; i < 100; ++i) {
-        std::cout << src_data[i] << " ";
-    }
-    std::cout << std::endl;
-
+    // // 定义要设置的值
+    // std::shared_ptr<float> src_ptr(
+    //         new float[3 * 1920 * 1080],
+    //         std::default_delete<float[]>());
+    // float * src_data = src_ptr.get();
+    // for(int i = 0; i < 3 * 1920 * 1080; i++) {
+    //     src_data[i] = rand() % 255;
+    // }
+    // // 输出一下src_data
+    // for (int i = 0; i < 100; ++i) {
+    //     std::cout << src_data[i] << " ";
+    // }
+    // std::cout << std::endl;
+    float src_data = 1.1;
     // memory set 到tensor
     input_tensor->memory_set(src_data);
     test_if_success(3 * 1920 * 1080,input_tensor); 
